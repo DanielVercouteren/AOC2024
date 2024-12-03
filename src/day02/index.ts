@@ -1,7 +1,6 @@
 import run from "aocrunner"
-import test from "node:test"
 
-const parseInput = (rawInput: string) => rawInput.trim().split('\n')
+const parseInput = (rawInput: string) => rawInput.trim().split("\n")
 
 const testReport = (levels: number[], withDampener: boolean) => {
   let isSafe: boolean = true
@@ -10,7 +9,10 @@ const testReport = (levels: number[], withDampener: boolean) => {
   levels.forEach((level, i) => {
     if (i === levels.length - 1) return
 
-    if (Math.abs(levels[i] - levels[i+1]) > 3 || levels[i] === levels[i+1]) {
+    if (
+      Math.abs(levels[i] - levels[i + 1]) > 3 ||
+      levels[i] === levels[i + 1]
+    ) {
       isSafe = false
     }
 
@@ -27,7 +29,7 @@ const testReport = (levels: number[], withDampener: boolean) => {
     for (let i = 0; i < levels.length; i++) {
       const copy = [...levels]
       delete copy[i]
-      if(testReport(copy.filter(Number), false)) {
+      if (testReport(copy.filter(Number), false)) {
         return true
       }
     }
@@ -40,8 +42,8 @@ const part1 = (rawInput: string) => {
   const reports = parseInput(rawInput)
   let safeReports: number = 0
 
-  reports.forEach(report => {
-    const levels = report.split(' ').map(Number)
+  reports.forEach((report) => {
+    const levels = report.split(" ").map(Number)
     testReport(levels, false) && safeReports++
   })
 
@@ -52,8 +54,8 @@ const part2 = (rawInput: string) => {
   const reports = parseInput(rawInput)
   let safeReports: number = 0
 
-  reports.forEach(report => {
-    const levels = report.split(' ').map(Number)
+  reports.forEach((report) => {
+    const levels = report.split(" ").map(Number)
     testReport(levels, true) && safeReports++
   })
 

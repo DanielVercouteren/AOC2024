@@ -1,11 +1,14 @@
 import run from "aocrunner"
 
-const prepareLines = (input: string, returnSorted: boolean): [string[], string[]] => {
+const prepareLines = (
+  input: string,
+  returnSorted: boolean,
+): [string[], string[]] => {
   let left: string[] = []
   let right: string[] = []
 
-  input.split('\n').map((line) => {
-    const [l, r] = line.split('   ')
+  input.split("\n").map((line) => {
+    const [l, r] = line.split("   ")
     left.push(l)
     right.push(r)
   })
@@ -36,7 +39,6 @@ const part2 = (rawInput: string) => {
   for (let i = 0; i < left.length; i++) {
     answer += right.filter((r) => r === left[i]).length * Number(left[i])
   }
-
 
   return answer
 }

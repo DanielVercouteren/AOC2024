@@ -41,28 +41,6 @@
 
 _Click a badge to go to the specific day._
 
----
-
-## Installation
-
-```
-npm i
-```
-
-## Running in dev mode
-
-```
-npm start <day>
-```
-
-Example:
-
-```
-npm start 1
-```
-
----
-
 ## Results
 
 <!--RESULTS-->
@@ -83,9 +61,9 @@ Both parts: 3.07ms
 
 ```
 Day 03
-Time part 1: 0.211ms
-Time part 2: 0.258ms
-Both parts: 0.469ms
+Time part 1: 0.204ms
+Time part 2: 0.235ms
+Both parts: 0.439ms
 ```
 
 ```
@@ -244,7 +222,7 @@ Both parts: -
 
 ```
 Total stars: 6/50
-Total time: 13.47ms
+Total time: 13.44ms
 ```
 
 <!--/RESULTS-->
