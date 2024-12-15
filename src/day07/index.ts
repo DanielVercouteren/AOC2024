@@ -3,12 +3,12 @@ import run from "aocrunner"
 const parseInput = (rawInput: string) => rawInput.split('\n')
 
 const calculateOutcome = (operators: string, numbers: number[]) => {
-  let result = numbers[0];
-  let numberIndex = 1;
+  let result = numbers[0]
+  let numberIndex = 1
 
   for (let x = 0; x < operators.length; x++) {
-    const operator = operators[x];
-    const currentNumber = numbers[numberIndex];
+    const operator = operators[x]
+    const currentNumber = numbers[numberIndex]
 
     switch (operator) {
       case '*':
@@ -26,7 +26,7 @@ const calculateOutcome = (operators: string, numbers: number[]) => {
   }
 
   return result
-};
+}
 
 const testPermutations = (numbers: number[], compare: number) => {
   const operators = numbers.length - 1
@@ -35,8 +35,8 @@ const testPermutations = (numbers: number[], compare: number) => {
   const totalPermutations = Math.pow(3, operators)
 
   for (let i = 0; i < totalPermutations; i++) {
-    let num = i;
-    let perm = '';
+    let num = i
+    let perm = ''
 
     for (let j = 0; j < operators; j++) {
       perm = chars[num % 3] + perm
@@ -48,12 +48,12 @@ const testPermutations = (numbers: number[], compare: number) => {
     }
   }
 
-  return false;
-};
+  return false
+}
 
 const part1 = (rawInput: string) => {
   const input = parseInput(rawInput)
-  let sum = 0;
+  let sum = 0
 
   for (const line of input) {
     const [resultStr, numbersStr] = line.split(':')
@@ -73,7 +73,7 @@ const part1 = (rawInput: string) => {
 
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput)
-  let sum = 0;
+  let sum = 0
 
   for (const line of input) {
     const [result, nums] = line.split(':')
