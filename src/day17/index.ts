@@ -98,10 +98,100 @@ const part1 = (rawInput: string) => {
 }
 
 const part2 = (rawInput: string) => {
-  // const input = parseInput(rawInput)
-  // let answer: number = 0
-  //
-  // return answer
+  let [registers, program] = parseInput(rawInput)
+  const end = program.join('')
+  let pointer = 0
+  const getCombo = (literal: number): number => {
+    switch(literal) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+        return literal
+      case 4:
+        return registers.A
+      case 5:
+        return registers.B
+      case 6:
+        return registers.C
+    }
+  }
+
+  let res = 164540892147388
+  let answer: number[] = []
+  const tryValues = (x: number) => {
+    registers.A = x
+    registers.B = 0
+    registers.C = 0
+    pointer = 0
+    program = [...program]
+    answer = []
+
+    while (pointer < program.length) {
+      const literal = program[pointer]
+      const combo = getCombo(program[pointer + 1])
+      switch (literal) {
+        case 0: {
+          adv(combo, registers)
+          pointer += 2
+          break
+        }
+        case 1: {
+          bxl(literal, registers)
+          pointer += 2
+          break
+        }
+        case 2: {
+          bst(combo, registers)
+          pointer += 2
+          break
+        }
+        case 3: {
+          if (registers.A !== 0) {
+            pointer = combo
+            continue
+          }
+          pointer += 2
+          break
+        }
+        case 4: {
+          bxc(registers)
+          pointer += 2
+          break
+        }
+        case 5: {
+          answer.push(out(combo))
+          pointer += 2
+          break
+        }
+        case 6: {
+          bdv(combo, registers)
+          pointer += 2
+          break
+        }
+        case 7: {
+          cdv(combo, registers)
+          pointer += 2
+          break
+        }
+      }
+    }
+
+    return answer.join('')
+  }
+
+  while(true) {
+    const v = tryValues(res)
+    console.log(`res ${res} gives v ${v}, while looking for end ${end}`)
+
+    if (v === end) {
+      console.log(`v = ${v} for end ${end}`)
+      break
+    }
+    res++
+  }
+
+  return res
 }
 
 run({

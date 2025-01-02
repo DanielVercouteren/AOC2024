@@ -336,44 +336,44 @@
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "1000",
         "attempts": [],
-        "time": null
+        "time": 656.818625
       },
       "part2": {
         "solved": false,
-        "result": null,
+        "result": "0",
         "attempts": [],
-        "time": null
+        "time": 1.027334
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "41324968993486",
         "attempts": [],
-        "time": null
+        "time": 2.919792
       },
       "part2": {
         "solved": false,
-        "result": null,
+        "result": "0",
         "attempts": [],
-        "time": null
+        "time": 0.041334
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "2900",
         "attempts": [],
-        "time": null
+        "time": 1605.766666
       },
       "part2": {
         "solved": false,
-        "result": null,
+        "result": "0",
         "attempts": [],
-        "time": null
+        "time": 1.136083
       }
     }
   ]
